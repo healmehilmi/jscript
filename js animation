@@ -1,0 +1,59 @@
+ <script>
+
+           
+            var accordion_items = document.querySelectorAll('.accordion__item');
+           
+            for(var i = 0; i < accordion_items.length; i++) {
+          
+                var h3 = accordion_items[i].querySelector('.accordion__item > h3');
+              
+                h3.addEventListener('click', function(_e){
+                   
+                    var accordion_items_of_same_accordion = _e.target.parentNode.parentNode.children;
+                    
+                    for(var i = 0; i < accordion_items_of_same_accordion.length; i++) {
+                       
+                        accordion_items_of_same_accordion[i].classList.remove('accordion__item--open');
+                    }
+                    
+                    _e.target.parentNode.classList.add('accordion__item--open');
+                });
+            }
+            
+            var alle_first_items = document.querySelectorAll('.accordion > .accordion__item:first-child');
+           
+            for(var i = 0; i < alle_first_items.length; i++) {
+                alle_first_items[i].querySelector('h3').dispatchEvent(new Event('click'));
+            }
+    
+
+
+
+
+            var as = document.querySelectorAll('.tabs > li a');
+
+            for( var i = 0; i<as.length;i++){
+
+                as[i].addEventListener('click',function(_e){
+                    _e.preventDefault();
+                    var type = _e.target.getAttribute("data-type");
+                    document.querySelector('.stickfly ').setAttribute("class", "stickfly stickfly--" + type);
+        
+                });
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+    
+        </script>
+
+
